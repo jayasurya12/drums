@@ -1,7 +1,23 @@
+let main=document.createElement('div');
+main.setAttribute('class',"main");
+document.body.appendChild(main);
+//
+let h1=document.createElement('h1');
+h1.innerHTML='Drum Kit';
+main.appendChild(h1);
+//
+let ButtonClassList=["w drum",'a drum',"s drum",'d drum',"g drum",'j drum',"l drum"];
+let ButtonNames=['w','a','s','d','g','j','l'];
+for(i=0; i<ButtonClassList.length; i++){
+    let buttonContainer=document.createElement('button');
+    buttonContainer.setAttribute('class',ButtonClassList[i]);
+    buttonContainer.innerText=ButtonNames[i];
+    main.appendChild(buttonContainer);
+}
 
 for(i=0;i<document.querySelectorAll('button').length; i++){
     document.querySelectorAll("button")[i].addEventListener('click',function(){
-        let buttonInnerHtml=this.innerHTML;
+        let buttonInnerHtml=this.innerText;
         soundMakes(buttonInnerHtml);
         buttonAnimation(buttonInnerHtml);
     })
